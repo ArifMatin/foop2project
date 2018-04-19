@@ -16,7 +16,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <TextBox Name="txtSearch" Grid.Column="2" Height="33" Width="120" Text="Search" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="17.333"/>
-                <ComboBox Name="combo1" Grid.Column="3"  Height="33" Width="120"/>
+                <ComboBox Name="combo1" Grid.Column="3"  Height="33" Width="120" SelectionChanged="combo1_SelectionChanged"/>
                 <RadioButton  Height="33" Width="120" Grid.Column="0" FontSize="17.333" Content="Student"/>
                 <RadioButton  Height="33" Width="120" Grid.Column="1" FontSize="17.333" Content="Staff"/>
             </Grid>

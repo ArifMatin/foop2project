@@ -24,5 +24,10 @@ namespace ProjectEndOfYear
         {
             InitializeComponent();
         }
+
+        private void combo1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
