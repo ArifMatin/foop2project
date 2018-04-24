@@ -27,7 +27,7 @@ namespace ProjectEndOfYear
 
         private void combo1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            
         }
     }
 

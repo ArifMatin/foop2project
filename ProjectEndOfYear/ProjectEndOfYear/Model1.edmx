@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="S00167749Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="StaffTBL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="9" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="25" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="Department" Type="nvarchar" MaxLength="50" />
+          <Property Name="Type" Type="nchar" MaxLength="20" />
+          <Property Name="Address" Type="nvarchar" MaxLength="75" />
+          <Property Name="Salary" Type="money" />
+          <Property Name="Year" Type="int" />
+        </EntityType>
+        <EntityType Name="StudentTBL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nchar" MaxLength="9" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="50" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="StudentYear" Type="int" />
+          <Property Name="StudentCourse" Type="nchar" MaxLength="30" />
+          <Property Name="Department" Type="nchar" MaxLength="30" />
+          <Property Name="Address" Type="nchar" MaxLength="75" />
+          <Property Name="Type" Type="nchar" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK_StaffTBL_StaffTBL">
+          <End Role="StaffTBL" Type="Self.StaffTBL" Multiplicity="1" />
+          <End Role="StaffTBL1" Type="Self.StaffTBL" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="StaffTBL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StaffTBL1">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentTBL_StudentTBL">
+          <End Role="StudentTBL" Type="Self.StudentTBL" Multiplicity="1" />
+          <End Role="StudentTBL1" Type="Self.StudentTBL" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="StudentTBL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentTBL1">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="S00167749ModelStoreContainer">
+          <EntitySet Name="StaffTBL" EntityType="Self.StaffTBL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentTBL" EntityType="Self.StudentTBL" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_StaffTBL_StaffTBL" Association="Self.FK_StaffTBL_StaffTBL">
+            <End Role="StaffTBL" EntitySet="StaffTBL" />
+            <End Role="StaffTBL1" EntitySet="StaffTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentTBL_StudentTBL" Association="Self.FK_StudentTBL_StudentTBL">
+            <End Role="StudentTBL" EntitySet="StudentTBL" />
+            <End Role="StudentTBL1" EntitySet="StudentTBL" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="S00167749Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="StaffTBL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="9" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="25" FixedLength="true" Unicode="true" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="Salary" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Year" Type="Int32" />
+          <NavigationProperty Name="StaffTBL1" Relationship="Self.FK_StaffTBL_StaffTBL" FromRole="StaffTBL" ToRole="StaffTBL1" />
+          <NavigationProperty Name="StaffTBL2" Relationship="Self.FK_StaffTBL_StaffTBL" FromRole="StaffTBL1" ToRole="StaffTBL" />
+        </EntityType>
+        <EntityType Name="StudentTBL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="9" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="StudentYear" Type="Int32" />
+          <Property Name="StudentCourse" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="Department" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="75" FixedLength="true" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="StudentTBL1" Relationship="Self.FK_StudentTBL_StudentTBL" FromRole="StudentTBL" ToRole="StudentTBL1" />
+          <NavigationProperty Name="StudentTBL2" Relationship="Self.FK_StudentTBL_StudentTBL" FromRole="StudentTBL1" ToRole="StudentTBL" />
+        </EntityType>
+        <Association Name="FK_StaffTBL_StaffTBL">
+          <End Role="StaffTBL" Type="Self.StaffTBL" Multiplicity="1" />
+          <End Role="StaffTBL1" Type="Self.StaffTBL" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="StaffTBL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StaffTBL1">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentTBL_StudentTBL">
+          <End Role="StudentTBL" Type="Self.StudentTBL" Multiplicity="1" />
+          <End Role="StudentTBL1" Type="Self.StudentTBL" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="StudentTBL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentTBL1">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="S00167749Entities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="StaffTBLs" EntityType="Self.StaffTBL" />
+          <EntitySet Name="StudentTBLs" EntityType="Self.StudentTBL" />
+          <AssociationSet Name="FK_StaffTBL_StaffTBL" Association="Self.FK_StaffTBL_StaffTBL">
+            <End Role="StaffTBL" EntitySet="StaffTBLs" />
+            <End Role="StaffTBL1" EntitySet="StaffTBLs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentTBL_StudentTBL" Association="Self.FK_StudentTBL_StudentTBL">
+            <End Role="StudentTBL" EntitySet="StudentTBLs" />
+            <End Role="StudentTBL1" EntitySet="StudentTBLs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="S00167749ModelStoreContainer" CdmEntityContainer="S00167749Entities2">
+          <EntitySetMapping Name="StaffTBLs">
+            <EntityTypeMapping TypeName="S00167749Model.StaffTBL">
+              <MappingFragment StoreEntitySet="StaffTBL">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentTBLs">
+            <EntityTypeMapping TypeName="S00167749Model.StudentTBL">
+              <MappingFragment StoreEntitySet="StudentTBL">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="StudentYear" ColumnName="StudentYear" />
+                <ScalarProperty Name="StudentCourse" ColumnName="StudentCourse" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
