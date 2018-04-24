@@ -25,13 +25,16 @@ namespace ProjectEndOfYear
         public MainWindow()
         {
             InitializeComponent();
+            var query = from c in db.StaffTBLs
+                        where c.Year == 1
+                        select c;
+
+            listboxDetails.ItemsSource = query.ToList();
         }
 
         private void combo1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var query = from c in db.StaffTBLs
-                        where c.Year == 1
-                        select c;
+          
         }
     }
 
