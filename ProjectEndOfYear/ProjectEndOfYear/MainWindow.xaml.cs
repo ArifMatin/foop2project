@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.Linq;
 
 namespace ProjectEndOfYear
 {
@@ -20,6 +21,7 @@ namespace ProjectEndOfYear
     /// </summary>
     public partial class MainWindow : Window
     {
+        S00167749Entities2 db = new S00167749Entities2();
         public MainWindow()
         {
             InitializeComponent();
@@ -27,7 +29,9 @@ namespace ProjectEndOfYear
 
         private void combo1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+            var query = from c in db.StaffTBLs
+                        where c.Year == 1
+                        select c;
         }
     }
 
