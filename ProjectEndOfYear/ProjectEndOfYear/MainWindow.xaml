@@ -21,23 +21,25 @@
                 <RadioButton  Height="33" Width="120" Grid.Column="1" FontSize="17.333" Content="Staff"/>
             </Grid>
         </StackPanel>
-        <StackPanel Width="318">
+        <StackPanel>
             <Grid Height="268">
                 <ListBox x:Name="listboxPerson" Height="197" Margin="19,43,284,28"/>
                 <ListBox x:Name="listboxDetails" Height="197" Margin="296,43,22,28"/>
             </Grid>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <Grid>
-                <TabControl>
-                    <TabItem>
+            <TabControl Width="555" Height="280">
+                <TabItem Height="50" Width="80" Header="Student">
+                    <Grid>
                         <Button Height="33" Width="120" Grid.Column="0" FontSize="17.333" Content="Student"/>
-                    </TabItem>
-                    <TabItem>
+                    </Grid>
+                </TabItem>
+                <TabItem  Height="50" Width="80" Header="Staff">
+                    <Grid>
                         <Button Height="33" Width="120" Grid.Column="1" FontSize="17.333" Content="Staff"/>
-                    </TabItem>
-                </TabControl>
-            </Grid>
+                    </Grid>
+                </TabItem>
+            </TabControl>
         </StackPanel>
     </StackPanel>
 </Window>
