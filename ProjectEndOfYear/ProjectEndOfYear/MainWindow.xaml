@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectEndOfYear"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <DockPanel>
-        <StackPanel DockPanel.Dock="Top">
+        Title="MainWindow" Height="650" Width="555">
+    <StackPanel Orientation="Vertical">
+        <StackPanel>
             <Grid Height="53">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -21,8 +21,23 @@
                 <RadioButton  Height="33" Width="120" Grid.Column="1" FontSize="17.333" Content="Staff"/>
             </Grid>
         </StackPanel>
-        <StackPanel Width="518">
-            <ListBox x:Name="listbox1" Height="197" Margin="19,15,306,0"/>
+        <StackPanel Width="318">
+            <Grid Height="268">
+                <ListBox x:Name="listboxPerson" Height="197" Margin="19,43,284,28"/>
+                <ListBox x:Name="listboxDetails" Height="197" Margin="296,43,22,28"/>
+            </Grid>
         </StackPanel>
-    </DockPanel>
+        <StackPanel Orientation="Horizontal">
+            <Grid>
+                <TabControl>
+                    <TabItem>
+                        <Button Height="33" Width="120" Grid.Column="0" FontSize="17.333" Content="Student"/>
+                    </TabItem>
+                    <TabItem>
+                        <Button Height="33" Width="120" Grid.Column="1" FontSize="17.333" Content="Staff"/>
+                    </TabItem>
+                </TabControl>
+            </Grid>
+        </StackPanel>
+    </StackPanel>
 </Window>

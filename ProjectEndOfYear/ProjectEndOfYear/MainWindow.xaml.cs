@@ -30,4 +30,22 @@ namespace ProjectEndOfYear
 
         }
     }
+
+
+    //public class Test1
+    //{
+
+    //}
+
+    //interface Test2
+    //{
+
+    //}
+
+    //public class Test3:Test1, Test2
+    //{
+
+    //}
 }
+
+
