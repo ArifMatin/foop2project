@@ -22,6 +22,10 @@ namespace ProjectEndOfYear
     public partial class MainWindow : Window
     {
         S00167749Entities2 db = new S00167749Entities2();
+
+        List<IPerson> StaffAndStudents = new List<IPerson>();
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -30,29 +34,78 @@ namespace ProjectEndOfYear
                         select c;
 
             listboxDetails.ItemsSource = query.ToList();
+
+            createObjects();
         }
 
         private void combo1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
           
         }
+
+        private void ShowListOfPerson()
+        {
+            var query1 = from st in db.StudentTBLs
+                         select new
+                         {
+                             st.Name,
+                             st.ID
+                         };
+
+            var query2 = from sf in db.StaffTBLs
+                         select new
+                         {
+                             sf.Name,
+                             sf.ID
+                         };
+
+            //var nameList = query1 + query2;
+
+            //StaffAndStudents.Add(query1.ToList());
+
+            //listboxPerson.ItemsSource = name;
+
+
+        }
+
+        private void createObjects()
+        {
+            var student = from st in db.StudentTBLs
+                         select new
+                         {
+                             st.Name,
+                             st.ID,
+                             st.DOB,
+                             st.StudentYear,
+                             st.StudentCourse,
+                             st.Department,
+                             st.Address,
+                             st.Type
+                         };
+
+            var staff = from sf in db.StaffTBLs
+                         select new
+                         {
+                             sf.Name,
+                             sf.ID,
+                             sf.DOB,
+                             sf.Department,
+                             sf.Type,
+                             sf.Address,
+                             sf.Salary,
+                             sf.Year
+                         };
+
+            student.ToArray();
+            int studentLength = student.Count();
+
+            for (int i = 0; i < student.Count(); i++)
+            {
+
+            }
+        }
     }
 
-
-    //public class Test1
-    //{
-
-    //}
-
-    //interface Test2
-    //{
-
-    //}
-
-    //public class Test3:Test1, Test2
-    //{
-
-    //}
 }
 
 

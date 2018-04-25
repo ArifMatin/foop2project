@@ -14,8 +14,19 @@ namespace ProjectEndOfYear
         }
     }
 
-    public class MyStaff : StaffTBL
+    public class MyStaff : StaffTBL, IPerson
     {
+        DateTime IPerson.DOB
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
 
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
     }
 }

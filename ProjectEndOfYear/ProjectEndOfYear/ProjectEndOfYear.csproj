@@ -71,12 +71,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="IPerson.cs" />
     <Compile Include="Model1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="MyPersonClass.cs" />
+    <Compile Include="MyStudentClass.cs" />
     <Compile Include="MyStaffClass.cs" />
     <Compile Include="StaffTBL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
