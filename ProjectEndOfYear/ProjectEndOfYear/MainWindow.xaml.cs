@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.Linq;
+using System.Collections.ObjectModel;
 
 namespace ProjectEndOfYear
 {
@@ -23,11 +24,13 @@ namespace ProjectEndOfYear
     {
         S00167749Entities2 db = new S00167749Entities2();
 
-        List<IPerson> StaffAndStudents = new List<IPerson>();
-
+        ObservableCollection<Person> StaffAndStudents = new ObservableCollection<Person>();
+        List<MyStaff> staffList = new List<MyStaff>();
+        List<MyStudentClass1> studentList = new List<MyStudentClass1>();
 
         public MainWindow()
         {
+            GetDataFromDB();
             InitializeComponent();
             var query = from c in db.StaffTBLs
                         where c.Year == 1
@@ -35,7 +38,7 @@ namespace ProjectEndOfYear
 
             listboxDetails.ItemsSource = query.ToList();
 
-            createObjects();
+           // createObjects();
         }
 
         private void combo1_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -68,42 +71,45 @@ namespace ProjectEndOfYear
 
         }
 
-        private void createObjects()
+        private void GetDataFromDB()
         {
+            #region
             var student = from st in db.StudentTBLs
-                         select new
-                         {
-                             st.Name,
-                             st.ID,
-                             st.DOB,
-                             st.StudentYear,
-                             st.StudentCourse,
-                             st.Department,
-                             st.Address,
-                             st.Type
-                         };
+                          select new MyStudentClass1(st.ID, st.Name, (DateTime)st.DOB, st.Type, st.Department, st.Address);
 
-            var staff = from sf in db.StaffTBLs
-                         select new
-                         {
-                             sf.Name,
-                             sf.ID,
-                             sf.DOB,
-                             sf.Department,
-                             sf.Type,
-                             sf.Address,
-                             sf.Salary,
-                             sf.Year
-                         };
+            //var staff = from sf in db.StaffTBLs
+            //             select new
+            //             {
+            //                 sf.Name,
+            //                 sf.ID,
+            //                 sf.DOB,
+            //                 sf.Department,
+            //                 sf.Type,
+            //                 sf.Address,
+            //                 sf.Salary,
+            //                 sf.Year
+            //             };
+            #endregion
 
-            student.ToArray();
+            student.ToList();
+
+            //studentList.Add(student[0]);
             int studentLength = student.Count();
+            MyStudentClass1[] studentArray = new MyStudentClass1[studentLength];
 
             for (int i = 0; i < student.Count(); i++)
             {
+                //studentArray[i] = new MyStudentClass1(studen);
 
+                studentList.Add(studentArray[i]);
+                
             }
         }
+        private void CreateObjects(StaffTBL s)
+        {
+
+        }
+
     }
 
 }

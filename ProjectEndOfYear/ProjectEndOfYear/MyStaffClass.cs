@@ -6,27 +6,26 @@ using System.Threading.Tasks;
 
 namespace ProjectEndOfYear
 {
-    public partial class StaffTBL
+
+    public class MyStaff : Person
     {
+        public decimal Salary { get; set; }
+        public int Year { get; set; }
+
+        public MyStaff(string iD, string name, DateTime dOB, string type, string department, string address,decimal salary, int year) : base(iD,name,dOB,type,department,address)
+        {
+            Salary = salary;
+            Year = year;
+        }
+
+        public MyStaff(string iD, string name, DateTime dOB, string type, string department, string address) : base(iD, name, dOB, type, department, address)
+        {
+
+        }
+
         public override string ToString()
         {
-            return String.Format(ID + Name);
-        }
-    }
-
-    public class MyStaff : StaffTBL, IPerson
-    {
-        DateTime IPerson.DOB
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
+            return base.ToString();
         }
     }
 }
