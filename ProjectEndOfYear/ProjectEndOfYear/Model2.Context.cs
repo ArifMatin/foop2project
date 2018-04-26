@@ -13,10 +13,10 @@ namespace ProjectEndOfYear
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class S00167749Entities2 : DbContext
+    public partial class dataEntities : DbContext
     {
-        public S00167749Entities2()
-            : base("name=S00167749Entities2")
+        public dataEntities()
+            : base("name=dataEntities")
         {
         }
     
@@ -25,7 +25,7 @@ namespace ProjectEndOfYear
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<StaffTBL> StaffTBLs { get; set; }
-        public virtual DbSet<StudentTBL> StudentTBLs { get; set; }
+        public virtual DbSet<Staff> Staff { get; set; }
+        public virtual DbSet<Student> Student { get; set; }
     }
 }

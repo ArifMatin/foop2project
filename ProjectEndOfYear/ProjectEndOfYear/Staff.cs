@@ -12,18 +12,15 @@ namespace ProjectEndOfYear
     using System;
     using System.Collections.Generic;
     
-    public partial class StudentTBL
+    public partial class Staff
     {
         public string ID { get; set; }
         public string Name { get; set; }
         public Nullable<System.DateTime> DOB { get; set; }
-        public Nullable<int> StudentYear { get; set; }
-        public string StudentCourse { get; set; }
         public string Department { get; set; }
-        public string Address { get; set; }
         public string Type { get; set; }
-    
-        public virtual StudentTBL StudentTBL1 { get; set; }
-        public virtual StudentTBL StudentTBL2 { get; set; }
+        public string Address { get; set; }
+        public Nullable<decimal> Salary { get; set; }
+        public Nullable<int> Year { get; set; }
     }
 }

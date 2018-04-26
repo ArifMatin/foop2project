@@ -28,4 +28,12 @@ namespace ProjectEndOfYear
             return base.ToString();
         }
     }
+
+    public partial class Staff
+    {
+        public override string ToString()
+        {
+            return String.Format("ID : " + ID + "\nName : " + Name + "\nDOB : " + DOB + "\nStudent Type : " + Type);
+        }
+    }
 }

@@ -12,7 +12,7 @@ namespace ProjectEndOfYear
     using System;
     using System.Collections.Generic;
     
-    public partial class StaffTBL
+    public partial class Student
     {
         public string ID { get; set; }
         public string Name { get; set; }
@@ -20,10 +20,7 @@ namespace ProjectEndOfYear
         public string Department { get; set; }
         public string Type { get; set; }
         public string Address { get; set; }
-        public Nullable<decimal> Salary { get; set; }
+        public string StudentCourse { get; set; }
         public Nullable<int> Year { get; set; }
-    
-        public virtual StaffTBL StaffTBL1 { get; set; }
-        public virtual StaffTBL StaffTBL2 { get; set; }
     }
 }
